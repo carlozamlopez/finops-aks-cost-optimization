@@ -1,0 +1,133 @@
+Name:               aks-system-35726749-vmss000001
+Roles:              <none>
+Labels:             agentpool=system
+                    beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/instance-type=Standard_D2s_v3
+                    beta.kubernetes.io/os=linux
+                    failure-domain.beta.kubernetes.io/region=eastus
+                    failure-domain.beta.kubernetes.io/zone=0
+                    kubernetes.azure.com/agentpool=system
+                    kubernetes.azure.com/cluster=MC_rg-cloudaks-dev_aks-cloudaks-dev_eastus
+                    kubernetes.azure.com/consolidated-additional-properties=8d898f84-806c-11f1-a358-f6138997ca61
+                    kubernetes.azure.com/kubelet-identity-client-id=2e8f0204-ce19-4f97-8c14-2ac8cc8d07ca
+                    kubernetes.azure.com/kubelet-serving-ca=cluster
+                    kubernetes.azure.com/localdns-state=disabled
+                    kubernetes.azure.com/mode=system
+                    kubernetes.azure.com/network-policy=none
+                    kubernetes.azure.com/node-image-version=AKSUbuntu-2404gen2containerd-202607.02.0
+                    kubernetes.azure.com/nodepool-type=VirtualMachineScaleSets
+                    kubernetes.azure.com/os-sku=Ubuntu
+                    kubernetes.azure.com/os-sku-effective=Ubuntu2404
+                    kubernetes.azure.com/os-sku-requested=Ubuntu
+                    kubernetes.azure.com/priority=regular
+                    kubernetes.azure.com/role=agent
+                    kubernetes.azure.com/sku-cpu=2
+                    kubernetes.azure.com/sku-memory=8192
+                    kubernetes.azure.com/storageprofile=managed
+                    kubernetes.azure.com/storagetier=Premium_LRS
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=aks-system-35726749-vmss000001
+                    kubernetes.io/os=linux
+                    node.kubernetes.io/instance-type=Standard_D2s_v3
+                    storageprofile=managed
+                    storagetier=Premium_LRS
+                    topology.disk.csi.azure.com/zone=
+                    topology.kubernetes.io/region=eastus
+                    topology.kubernetes.io/zone=0
+Annotations:        alpha.kubernetes.io/provided-node-ip: 10.0.2.10
+                    csi.volume.kubernetes.io/nodeid:
+                      {"disk.csi.azure.com":"aks-system-35726749-vmss000001","file.csi.azure.com":"aks-system-35726749-vmss000001"}
+                    node.alpha.kubernetes.io/ttl: 0
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Wed, 15 Jul 2026 11:42:21 -0600
+Taints:             <none>
+Unschedulable:      false
+Lease:
+  HolderIdentity:  aks-system-35726749-vmss000001
+  AcquireTime:     <unset>
+  RenewTime:       Wed, 15 Jul 2026 12:20:00 -0600
+Conditions:
+  Type                          Status  LastHeartbeatTime                 LastTransitionTime                Reason                          Message
+  ----                          ------  -----------------                 ------------------                ------                          -------
+  FilesystemCorruptionProblem   False   Wed, 15 Jul 2026 12:17:42 -0600   Wed, 15 Jul 2026 11:42:38 -0600   FilesystemIsOK                  Filesystem is healthy
+  KernelDeadlock                False   Wed, 15 Jul 2026 12:17:42 -0600   Wed, 15 Jul 2026 11:42:37 -0600   KernelHasNoDeadlock             kernel has no deadlock
+  FrequentKubeletRestart        False   Wed, 15 Jul 2026 12:17:42 -0600   Wed, 15 Jul 2026 11:42:37 -0600   NoFrequentKubeletRestart        kubelet is functioning properly
+  FrequentDockerRestart         False   Wed, 15 Jul 2026 12:17:42 -0600   Wed, 15 Jul 2026 11:42:37 -0600   NoFrequentDockerRestart         docker is functioning properly
+  VMEventScheduled              False   Wed, 15 Jul 2026 12:17:42 -0600   Wed, 15 Jul 2026 11:42:38 -0600   NoVMEventScheduled              VM has no scheduled event
+  FrequentUnregisterNetDevice   False   Wed, 15 Jul 2026 12:17:42 -0600   Wed, 15 Jul 2026 11:42:38 -0600   NoFrequentUnregisterNetDevice   node is functioning properly
+  ReadonlyFilesystem            False   Wed, 15 Jul 2026 12:17:42 -0600   Wed, 15 Jul 2026 11:42:37 -0600   FilesystemIsNotReadOnly         Filesystem is not read-only
+  ContainerRuntimeProblem       False   Wed, 15 Jul 2026 12:17:42 -0600   Wed, 15 Jul 2026 11:42:37 -0600   ContainerRuntimeIsUp            container runtime service is up
+  KubeletProblem                False   Wed, 15 Jul 2026 12:17:42 -0600   Wed, 15 Jul 2026 11:42:38 -0600   KubeletIsUp                     kubelet service is up
+  FrequentContainerdRestart     False   Wed, 15 Jul 2026 12:17:42 -0600   Wed, 15 Jul 2026 11:42:37 -0600   NoFrequentContainerdRestart     containerd is functioning properly
+  MemoryPressure                False   Wed, 15 Jul 2026 12:17:57 -0600   Wed, 15 Jul 2026 11:42:21 -0600   KubeletHasSufficientMemory      kubelet has sufficient memory available
+  DiskPressure                  False   Wed, 15 Jul 2026 12:17:57 -0600   Wed, 15 Jul 2026 11:48:29 -0600   KubeletHasNoDiskPressure        kubelet has no disk pressure
+  PIDPressure                   False   Wed, 15 Jul 2026 12:17:57 -0600   Wed, 15 Jul 2026 11:42:21 -0600   KubeletHasSufficientPID         kubelet has sufficient PID available
+  Ready                         True    Wed, 15 Jul 2026 12:17:57 -0600   Wed, 15 Jul 2026 11:42:33 -0600   KubeletReady                    kubelet is posting ready status
+Addresses:
+  InternalIP:  10.0.2.10
+  Hostname:    aks-system-35726749-vmss000001
+Capacity:
+  cpu:                2
+  ephemeral-storage:  29379712Ki
+  hugepages-1Gi:      0
+  hugepages-2Mi:      0
+  memory:             8134512Ki
+  pods:               30
+Allocatable:
+  cpu:                1900m
+  ephemeral-storage:  27076342535
+  hugepages-1Gi:      0
+  hugepages-2Mi:      0
+  memory:             7366512Ki
+  pods:               30
+System Info:
+  Machine ID:                 593572fb50584467963f880af021208f
+  System UUID:                2985ac13-79f4-4c49-9842-e5c6189654d7
+  Boot ID:                    36fed3f6-e1cc-4d07-bf1a-41e443073ccc
+  Kernel Version:             6.8.0-1059-azure
+  OS Image:                   Ubuntu 24.04.4 LTS
+  Operating System:           linux
+  Architecture:               amd64
+  Container Runtime Version:  containerd://2.3.2-1
+  Kubelet Version:            v1.35.6
+  Kube-Proxy Version:         
+ProviderID:                   azure:///subscriptions/51f029c9-d110-4540-85d6-e44a33dc3a4d/resourceGroups/mc_rg-cloudaks-dev_aks-cloudaks-dev_eastus/providers/Microsoft.Compute/virtualMachineScaleSets/aks-system-35726749-vmss/virtualMachines/1
+Non-terminated Pods:          (22 in total)
+  Namespace                   Name                                              CPU Requests  CPU Limits    Memory Requests  Memory Limits  Age
+  ---------                   ----                                              ------------  ----------    ---------------  -------------  ---
+  kube-system                 ama-logs-rs-65d5f59d64-jfkzn                      150m (7%)     1 (52%)       250Mi (3%)       1536Mi (21%)   57m
+  kube-system                 ama-logs-s6ckf                                    150m (7%)     3500m (184%)  550Mi (7%)       3584Mi (49%)   37m
+  kube-system                 azure-cns-dwtcz                                   0 (0%)        0 (0%)        0 (0%)           0 (0%)         37m
+  kube-system                 azure-ip-masq-agent-d7rhw                         50m (2%)      500m (26%)    36Mi (0%)        250Mi (3%)     37m
+  kube-system                 cloud-node-manager-gbd6p                          50m (2%)      0 (0%)        50Mi (0%)        512Mi (7%)     37m
+  kube-system                 coredns-648978f94d-7d2xm                          100m (5%)     3 (157%)      70Mi (0%)        500Mi (6%)     57m
+  kube-system                 coredns-648978f94d-ktw46                          100m (5%)     3 (157%)      70Mi (0%)        500Mi (6%)     57m
+  kube-system                 coredns-autoscaler-77f77644c8-ftq7b               20m (1%)      200m (10%)    10Mi (0%)        500Mi (6%)     57m
+  kube-system                 csi-azuredisk-node-gftld                          30m (1%)      0 (0%)        60Mi (0%)        5800Mi (80%)   37m
+  kube-system                 csi-azurefile-node-xh6wn                          40m (2%)      0 (0%)        80Mi (1%)        700Mi (9%)     37m
+  kube-system                 konnectivity-agent-57b876c67b-4wlth               20m (1%)      1 (52%)       20Mi (0%)        1Gi (14%)      57m
+  kube-system                 konnectivity-agent-57b876c67b-mnhzl               20m (1%)      1 (52%)       20Mi (0%)        1Gi (14%)      57m
+  kube-system                 konnectivity-agent-autoscaler-6769c6f8db-lpw8s    20m (1%)      350m (18%)    10Mi (0%)        512M (6%)      57m
+  kube-system                 kube-proxy-xq4r6                                  100m (5%)     0 (0%)        0 (0%)           0 (0%)         37m
+  kube-system                 metrics-server-5c86cf8bb4-9qc5d                   156m (8%)     251m (13%)    134Mi (1%)       404Mi (5%)     57m
+  kube-system                 metrics-server-5c86cf8bb4-vlmbz                   156m (8%)     251m (13%)    134Mi (1%)       404Mi (5%)     57m
+  opencost                    opencost-bf6b9885-bfs74                           20m (1%)      0 (0%)        110Mi (1%)       2Gi (28%)      57m
+  prometheus-system           prometheus-kube-state-metrics-6dbc9dff87-95ptj    0 (0%)        0 (0%)        0 (0%)           0 (0%)         57m
+  prometheus-system           prometheus-prometheus-node-exporter-7sd89         0 (0%)        0 (0%)        0 (0%)           0 (0%)         37m
+  prometheus-system           prometheus-server-68f87cdf48-llwkg                0 (0%)        0 (0%)        0 (0%)           0 (0%)         23m
+  workload-demo               api-dummy-oversized-f89c4dbcf-28rws               300m (15%)    600m (31%)    256Mi (3%)       512Mi (7%)     7m53s
+  workload-demo               batch-variable-load-5b47dc99dd-tqfgm              250m (13%)    500m (26%)    256Mi (3%)       512Mi (7%)     7m52s
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests      Limits
+  --------           --------      ------
+  cpu                1732m (91%)   15152m (797%)
+  memory             2116Mi (29%)  20785440Ki (282%)
+  ephemeral-storage  0 (0%)        0 (0%)
+  hugepages-1Gi      0 (0%)        0 (0%)
+  hugepages-2Mi      0 (0%)        0 (0%)
+Events:
+  Type     Reason              Age   From                 Message
+  ----     ------              ----  ----                 -------
+  Normal   RegisteredNode      37m   node-controller      Node aks-system-35726749-vmss000001 event: Registered Node aks-system-35726749-vmss000001 in Controller
+  Warning  CoreDNSUnreachable  37m   dns-problem-monitor  dns test to coredns:10.1.0.10 over udp failed after 2 attempts

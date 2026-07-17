@@ -1,0 +1,45 @@
+Name:             api-dummy-staging-6b48db687f-4v2kr
+Namespace:        workload-staging
+Priority:         0
+Service Account:  default
+Node:             <none>
+Labels:           app=api-dummy-staging
+                  pod-template-hash=6b48db687f
+Annotations:      <none>
+Status:           Pending
+IP:               
+IPs:              <none>
+Controlled By:    ReplicaSet/api-dummy-staging-6b48db687f
+Containers:
+  api-dummy-staging:
+    Image:      nginx:alpine
+    Port:       80/TCP
+    Host Port:  0/TCP
+    Limits:
+      cpu:     600m
+      memory:  512Mi
+    Requests:
+      cpu:        300m
+      memory:     256Mi
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-rmlnr (ro)
+Conditions:
+  Type           Status
+  PodScheduled   False 
+Volumes:
+  kube-api-access-rmlnr:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                             node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason            Age                   From               Message
+  ----     ------            ----                  ----               -------
+  Warning  FailedScheduling  119s (x2 over 7m26s)  default-scheduler  0/1 nodes are available: 1 Insufficient cpu. no new claims to deallocate, preemption: 0/1 nodes are available: 1 No preemption victims found for incoming pod.
