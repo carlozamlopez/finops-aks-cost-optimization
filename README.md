@@ -1,6 +1,6 @@
 # Diagnóstico y Optimización FinOps en AKS: de sobreaprovisionamiento fantasma a capacidad real liberada
 
-**Autor:** Carlos Amador López (Zorro)
+**Autor:** Carlos Amador López
 **Stack:** Azure Kubernetes Service (AKS) · Terraform · OpenCost · Prometheus · Helm
 **Repositorio base:** [cloud-aks-platform](https://github.com/carlozamlopez/cloud-aks-platform)
 **Fecha del laboratorio:** Julio 2026
