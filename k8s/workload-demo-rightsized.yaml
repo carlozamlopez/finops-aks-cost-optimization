@@ -1,0 +1,68 @@
+# workload-demo-rightsized.yaml
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-dummy-oversized
+  namespace: workload-demo
+  labels:
+    app: api-dummy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-dummy
+  template:
+    metadata:
+      labels:
+        app: api-dummy
+    spec:
+      containers:
+        - name: api-dummy
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "20m"
+              memory: "32Mi"
+            limits:
+              cpu: "100m"
+              memory: "64Mi"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: batch-variable-load
+  namespace: workload-demo
+  labels:
+    app: batch-variable
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: batch-variable
+  template:
+    metadata:
+      labels:
+        app: batch-variable
+    spec:
+      containers:
+        - name: batch-variable
+          image: busybox:stable
+          command:
+            - sh
+            - -c
+            - |
+              while true; do
+                echo "Ciclo de carga: procesando..."
+                dd if=/dev/zero of=/dev/null bs=1M count=50 2>/dev/null
+                sleep 280
+              done
+          resources:
+            requests:
+              cpu: "15m"
+              memory: "24Mi"
+            limits:
+              cpu: "150m"
+              memory: "64Mi"

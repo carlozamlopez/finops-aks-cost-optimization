@@ -1,0 +1,120 @@
+# workload-demo.yaml
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: workload-demo
+  labels:
+    ambiente: demo
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: workload-staging
+  labels:
+    ambiente: staging
+---
+# 1. API dummy sobreaprovisionada
+# Pide recursos como si fuera una API real, pero solo sirve una página estática.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-dummy-oversized
+  namespace: workload-demo
+  labels:
+    app: api-dummy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-dummy
+  template:
+    metadata:
+      labels:
+        app: api-dummy
+    spec:
+      containers:
+        - name: api-dummy
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "300m"
+              memory: "256Mi"
+            limits:
+              cpu: "600m"
+              memory: "512Mi"
+---
+# 2. Job de carga variable
+# Simula un servicio que solo trabaja a ratos (duerme la mayor parte del tiempo)
+# pero tiene recursos reservados las 24 horas.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: batch-variable-load
+  namespace: workload-demo
+  labels:
+    app: batch-variable
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: batch-variable
+  template:
+    metadata:
+      labels:
+        app: batch-variable
+    spec:
+      containers:
+        - name: batch-variable
+          image: busybox:stable
+          command:
+            - sh
+            - -c
+            - |
+              while true; do
+                echo "Ciclo de carga: procesando..."
+                dd if=/dev/zero of=/dev/null bs=1M count=50 2>/dev/null
+                sleep 280
+              done
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+---
+# 3. Duplicado en namespace "staging"
+# Mismo patrón, pero aislado para poder demostrar apagado automatizado
+# nocturno/fin de semana sin tocar el namespace "productivo".
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-dummy-staging
+  namespace: workload-staging
+  labels:
+    app: api-dummy-staging
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-dummy-staging
+  template:
+    metadata:
+      labels:
+        app: api-dummy-staging
+    spec:
+      containers:
+        - name: api-dummy-staging
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "300m"
+              memory: "256Mi"
+            limits:
+              cpu: "600m"
+              memory: "512Mi"
